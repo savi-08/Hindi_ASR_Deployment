@@ -64,13 +64,13 @@ curl -X 'POST' \
 
 ## 📁 Project Structure
 ### File	Description
-main.py	- FastAPI app for handling audio and model inference
-Dockerfile - Docker setup to containerize the app
-download_model.py -	Downloads and converts NeMo model to ONNX
-asr_model.onnx - Pre-trained and converted Hindi ASR model
-README.md	- Instructions to run and use the API
-Description.md - Explanation of issues, limitations, and learnings
-requirements.txt - Python dependencies for the app
+#### main.py	- FastAPI app for handling audio and model inference
+#### Dockerfile - Docker setup to containerize the app
+#### download_model.py -	Downloads and converts NeMo model to ONNX
+#### asr_model.onnx - Pre-trained and converted Hindi ASR model
+#### README.md	- Instructions to run and use the API
+#### Description.md - Explanation of issues, limitations, and learnings
+#### requirements.txt - Python dependencies for the app
 
 ---
 
@@ -78,11 +78,11 @@ requirements.txt - Python dependencies for the app
 
 ### Swagger UI
 
-![Swagger UI](screenshot_swagger.png)
+![Swagger UI](Screenshot_Swagger.png)
 
 ### Transcription Output
 
-![Transcription Result](screenshot_result.png)
+![Transcription Result](Output.png)
 
 
 ## 📥 Model Files
