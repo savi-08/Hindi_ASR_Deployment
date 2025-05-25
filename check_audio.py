@@ -1,6 +1,6 @@
 import soundfile as sf
 
-filename = "compressed_audio.wav"  # or update this if needed
+filename = "final_audio.wav"  
 data, samplerate = sf.read(filename)
 
 print("✅ Sample Rate:", samplerate)

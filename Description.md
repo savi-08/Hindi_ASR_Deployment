@@ -1,6 +1,22 @@
 # Description: ASR Deployment Report
 
 ---
+## Format Used: ONNX
+
+We chose to use the ONNX format for model optimization and deployment, as it is lightweight, cross-platform, and compatible with `onnxruntime` for inference inside Docker. ONNX also supports deployment without requiring a full PyTorch installation.
+
+TorchScript was not used in this project, but could be a good alternative if we wanted to keep model-specific preprocessing layers during inference. In this case, ONNX was sufficient for functional deployment, although accuracy issues were observed due to preprocessing layer loss.
+
+---
+### TorchScript vs ONNX (Reflection)
+
+Although ONNX was chosen for deployment, the model output accuracy was significantly degraded. This is likely because ONNX exports the raw model weights but **excludes internal preprocessing steps** (e.g., normalization, augmentation, or input context), which NeMo uses heavily.
+
+In contrast, TorchScript would have preserved more of the model’s internal operations. If accuracy was the primary goal, TorchScript would likely have produced better results at the cost of slightly larger model size and dependency on PyTorch in the Docker image.
+
+This is an important trade-off we identified during deployment.
+
+---
 
 ## ✅ What Worked
 

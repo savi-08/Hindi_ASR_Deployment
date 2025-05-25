@@ -14,7 +14,7 @@ if not os.path.exists(onnx_model_path):
 
 session = ort.InferenceSession(onnx_model_path)
 
-# Hindi character labels (example from stt_hi_conformer_ctc model)
+# Hindi character labels 
 labels = [
     " ", "अ", "आ", "इ", "ई", "उ", "ऊ", "ए", "ऐ", "ओ", "औ", "अं", "क", "ख", "ग", "घ", "च", "छ", "ज", "झ",
     "ट", "ठ", "ड", "ढ", "त", "थ", "द", "ध", "न", "प", "फ", "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष",
@@ -79,7 +79,7 @@ async def transcribe(file: UploadFile = File(...)):
     outputs = session.run(None, inputs)[0]
     pred = np.argmax(outputs, axis=-1)[0]
 
-    # Decode prediction (greedy CTC decoding)
+    # Decode prediction 
     decoded = ""
     last = None
     for i in pred:

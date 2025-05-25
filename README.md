@@ -30,21 +30,22 @@ This project is a FastAPI-based Automatic Speech Recognition (ASR) system for Hi
 ```bash
 git clone <your-repo-link>
 cd <repo-folder>
-2. Build Docker Image
-bash
-Copy
-Edit
+```
+### 2. Build Docker Image
+
+```bash
 docker build -t asr-api .
-3. Run the API
-bash
-Copy
-Edit
+```
+### 3. Run the API
+
+```bash
 docker run -p 8000:8000 asr-api
+```
 The API will be live at:
 http://localhost:8000/docs
 
-🎙️ How to Use the API
-🔘 Using Swagger UI
+## 🎙️ How to Use the API
+### 🔘 Using Swagger UI
 Go to http://localhost:8000/docs
 
 Click on /transcribe → "Try it out"
@@ -53,24 +54,23 @@ Upload a .wav file (mono, 16kHz)
 
 Click Execute to get the transcription
 
-🔘 Using curl
-bash
-Copy
-Edit
+### 🔘 Using curl
+
 curl -X 'POST' \
   'http://localhost:8000/transcribe' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@fixed_audio.wav'
-📁 Project Structure
-File	Description
-main.py	FastAPI app for handling audio and model inference
-Dockerfile	Docker setup to containerize the app
-download_model.py	Downloads and converts NeMo model to ONNX
-asr_model.onnx	Pre-trained and converted Hindi ASR model
-README.md	Instructions to run and use the API
-Description.md	Explanation of issues, limitations, and learnings
-requirements.txt	Python dependencies for the app
+
+## 📁 Project Structure
+### File	Description
+main.py	- FastAPI app for handling audio and model inference
+Dockerfile - Docker setup to containerize the app
+download_model.py -	Downloads and converts NeMo model to ONNX
+asr_model.onnx - Pre-trained and converted Hindi ASR model
+README.md	- Instructions to run and use the API
+Description.md - Explanation of issues, limitations, and learnings
+requirements.txt - Python dependencies for the app
 
 ---
 
@@ -93,8 +93,8 @@ You must download them manually using this script:
 
 ```bash
 python download_model.py
-
-⚙️ Requirements
+```
+## ⚙️ Requirements
 Audio file must be:
 
 .wav format
@@ -105,5 +105,5 @@ Mono (1 channel)
 
 Duration between 5 to 10 seconds
 
-📚 Credits
+### 📚 Credits
 NVIDIA NeMo: https://github.com/NVIDIA/NeMo
